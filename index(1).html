@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1769e0">
+  <title>آزمون روان‌پزشکی دکتر مریم محرابی</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root{--blue:#1769e0;--blue2:#0d54bd;--bg:#f3f6fb;--card:#fff;--text:#152238;--muted:#6d7b91;--line:#dfe6f1;--green:#18a86b;--red:#e34d59;--amber:#f4a318;--shadow:0 10px 30px rgba(25,52,92,.10)}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,"Vazirmatn",Arial,sans-serif;background:var(--bg);color:var(--text)}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}
+    .app{min-height:100vh;min-height:100dvh;padding-bottom:calc(24px + env(safe-area-inset-bottom))}.hidden{display:none!important}.screen{animation:fade .22s ease}@keyframes fade{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .hero{background:linear-gradient(145deg,#0c50b9 0%,#1976ed 56%,#3c96ff 100%);color:#fff;padding:calc(28px + env(safe-area-inset-top)) 22px 46px;border-radius:0 0 34px 34px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:220px;height:220px;border:45px solid rgba(255,255,255,.09);border-radius:50%;left:-95px;top:-90px}.brand{position:relative;z-index:1;max-width:720px;margin:auto}.brand-mark{width:58px;height:58px;display:grid;place-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);border-radius:18px;font-size:30px}.hero h1{font-size:25px;margin:18px 0 8px}.hero p{margin:0;opacity:.86;line-height:1.9;font-size:14px}
+    .start-card{max-width:680px;margin:-23px auto 20px;background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:22px;position:relative}.start-title{font-weight:800;font-size:19px;line-height:1.7}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0 20px}.chip{background:#eef4fd;color:#35506f;padding:8px 11px;border-radius:11px;font-size:13px}.notice{background:#f7f9fc;border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--muted);font-size:13px;line-height:1.9;margin-bottom:18px}.primary{border:0;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;border-radius:14px;padding:14px 20px;font-weight:800;width:100%;box-shadow:0 8px 18px rgba(23,105,224,.24)}.secondary{border:1px solid #b9c8dc;background:white;color:#31516f;border-radius:13px;padding:12px 16px;font-weight:700}.error{color:var(--red);font-size:13px;margin-top:12px;line-height:1.8}
+    .topbar{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;padding:calc(12px + env(safe-area-inset-top)) 15px 13px;position:sticky;top:0;z-index:5;box-shadow:0 4px 15px rgba(12,68,150,.22)}.topline{max-width:820px;margin:auto;display:flex;align-items:center;gap:10px}.icon-btn{border:0;background:rgba(255,255,255,.16);color:#fff;width:40px;height:40px;border-radius:12px;font-size:18px}.toptext{min-width:0;flex:1}.toptext b{font-size:15px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.meta{font-size:12px;opacity:.83;margin-top:5px}.time{font-variant-numeric:tabular-nums;direction:ltr;background:rgba(0,0,0,.12);border-radius:10px;padding:8px 9px;font-size:13px}.progress{height:4px;background:rgba(255,255,255,.22);margin:12px -15px -13px;direction:rtl}.progress i{display:block;height:100%;background:#fff;width:0;transition:width .25s}
+    .quiz-wrap{max-width:820px;margin:17px auto;padding:0 14px}.status-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px}.qnum{color:var(--blue);font-weight:800}.badge{font-size:12px;color:var(--muted);background:#e8edf5;padding:7px 10px;border-radius:10px}.question-card{background:var(--card);border-radius:20px;padding:20px 18px;box-shadow:var(--shadow);border-top:5px solid var(--blue)}.theme{font-size:12px;color:var(--blue);font-weight:800;margin-bottom:13px}.stem{font-size:16px;line-height:2.05;white-space:pre-line;font-weight:650}.options{display:grid;gap:11px;margin-top:19px}.option{border:1.5px solid var(--line);background:#fff;color:var(--text);border-radius:15px;padding:13px;text-align:right;display:flex;gap:12px;align-items:flex-start;line-height:1.8;transition:.16s}.option:hover{border-color:#91b8ef;background:#f8fbff}.option.selected{border-color:var(--blue);background:#eaf3ff;box-shadow:0 0 0 2px rgba(23,105,224,.08)}.letter{display:grid;place-items:center;flex:0 0 31px;height:31px;border-radius:9px;background:#edf2f8;color:#47617d;font-weight:800}.option.selected .letter{background:var(--blue);color:#fff}
+    .tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}.tool{border:1px solid var(--line);background:#fff;border-radius:13px;padding:11px;color:#47617d;font-weight:700}.tool.on{color:#9a6400;border-color:#f5c667;background:#fff8e8}.nav{display:grid;grid-template-columns:1fr auto 1fr;gap:9px;align-items:center;margin-top:14px}.nav button{min-height:48px}.next{border:0;background:var(--blue);color:#fff;border-radius:14px;font-weight:800}.prev{border:1px solid #bed0e7;background:#fff;color:#395977;border-radius:14px;font-weight:800}.finish{border:0;background:transparent;color:var(--red);font-size:12px;font-weight:800;padding:8px}
+    .result-head{background:linear-gradient(145deg,#0b56c4,#2486f3);color:#fff;text-align:center;padding:calc(25px + env(safe-area-inset-top)) 18px 52px;border-radius:0 0 36px 36px}.result-head h2{margin:10px 0 4px}.score-ring{width:126px;height:126px;border-radius:50%;margin:20px auto -98px;background:conic-gradient(#fff var(--score),rgba(255,255,255,.24) 0);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18)}.score-ring:after{content:"";position:absolute;width:102px;height:102px;border-radius:50%;background:#1769e0}.score-text{position:relative;z-index:1;font-weight:900;font-size:25px}.result-body{max-width:760px;margin:75px auto 20px;padding:0 14px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#fff;border-radius:15px;padding:14px 7px;text-align:center;box-shadow:var(--shadow)}.stat b{display:block;font-size:21px;margin-bottom:4px}.stat span{font-size:12px;color:var(--muted)}.stat.good b{color:var(--green)}.stat.bad b{color:var(--red)}.stat.skip b{color:var(--amber)}.result-actions{display:grid;gap:10px;margin-top:15px}.review-list{display:grid;gap:10px;margin-top:16px}.review-item{background:#fff;border-radius:14px;padding:14px;border-right:5px solid var(--line);box-shadow:0 5px 18px rgba(30,55,90,.06)}.review-item.good{border-color:var(--green)}.review-item.bad{border-color:var(--red)}.review-item.skip{border-color:var(--amber)}.review-item button{border:0;background:transparent;width:100%;text-align:right;color:var(--text);font-weight:700}.review-detail{border-top:1px solid var(--line);margin-top:11px;padding-top:11px;font-size:13px;line-height:1.9;color:#42536a}.answer-line{padding:6px 0}.correct-text{color:var(--green);font-weight:800}.wrong-text{color:var(--red);font-weight:800}.explain{background:#f4f8fd;border-radius:11px;padding:10px;margin-top:7px;white-space:pre-line}
+    .sheet-backdrop{position:fixed;inset:0;background:rgba(11,28,51,.5);z-index:20;display:grid;align-items:end}.sheet{background:#fff;border-radius:24px 24px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom));max-height:82dvh;overflow:auto}.sheet h3{margin:2px 0 15px}.map{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;direction:rtl}.map-btn{aspect-ratio:1;border:1px solid var(--line);background:#f3f6fa;border-radius:10px;color:#50647d;font-weight:800}.map-btn.answered{background:#dcecff;border-color:#72aaf0;color:#125bb9}.map-btn.flagged{box-shadow:inset 0 -4px var(--amber)}.map-btn.current{outline:3px solid var(--blue)}.map-btn.correct{background:#dff7ed;border-color:#6bcda5;color:#08794b}.map-btn.wrong{background:#ffe5e7;border-color:#f09ca3;color:#b12632}.map-btn.skipped{background:#fff4d9;border-color:#edc667;color:#8a6000}.legend{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;color:var(--muted);font-size:12px}.dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-left:4px}.sheet-actions{display:flex;gap:9px;margin-top:15px}.sheet-actions button{flex:1}.jump-form{display:flex;gap:9px}.jump-form input{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:12px;text-align:center;outline:0}.jump-form input:focus{border-color:var(--blue)}
+    @media(min-width:700px){.map{grid-template-columns:repeat(10,1fr)}.question-card{padding:25px 28px}.stem{font-size:17px}.tools{grid-template-columns:180px 180px}.result-actions{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <section id="startScreen" class="screen">
+    <div class="hero"><div class="brand"><div class="brand-mark">Ψ</div><h1>آزمون روان‌پزشکی</h1><p>مرور هدفمند سؤالات بورد با امکان علامت‌گذاری و تحلیل پاسخ‌ها</p></div></div>
+    <div class="start-card">
+      <div id="bankTitle" class="start-title">در حال دریافت بانک سؤال…</div>
+      <div class="chips"><span id="countChip" class="chip">— سؤال</span><span class="chip">نمایش پاسخ پس از پایان</span><span class="chip">ذخیره خودکار پیشرفت</span></div>
+      <div class="notice">در طول آزمون می‌توانید سؤال‌ها را رد کنید یا برای مرور علامت بزنید. پاسخ صحیح و توضیحات فقط بعد از پایان آزمون نمایش داده می‌شوند.</div>
+      <button id="startBtn" class="primary" disabled>شروع آزمون</button>
+      <button id="resumeBtn" class="secondary hidden" style="width:100%;margin-top:10px">ادامه آزمون قبلی</button>
+      <div id="loadError" class="error"></div>
+    </div>
+  </section>
+
+  <section id="quizScreen" class="screen hidden">
+    <header class="topbar"><div class="topline"><button id="mapBtn" class="icon-btn" aria-label="نقشه سؤالات">▦</button><div class="toptext"><b id="quizTitle">آزمون</b><div id="answeredMeta" class="meta"></div></div><div id="timer" class="time">00:00</div></div><div class="progress"><i id="progressBar"></i></div></header>
+    <div class="quiz-wrap">
+      <div class="status-row"><div id="questionNumber" class="qnum"></div><div id="questionStatus" class="badge"></div></div>
+      <article class="question-card"><div id="questionTheme" class="theme"></div><div id="questionStem" class="stem"></div><div id="options" class="options"></div></article>
+      <div class="tools"><button id="flagBtn" class="tool">☆ علامت برای مرور</button><button id="skipBtn" class="tool">رد کردن سؤال</button></div>
+      <div class="nav"><button id="prevBtn" class="prev">قبلی</button><button id="finishBtn" class="finish">پایان آزمون</button><button id="nextBtn" class="next">بعدی</button></div>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="screen hidden">
+    <div class="result-head"><div style="font-size:35px">🏆</div><h2>کارنامه آزمون</h2><div id="resultSubtitle" style="opacity:.82;font-size:13px"></div><div id="scoreRing" class="score-ring"><span id="scoreText" class="score-text">۰٪</span></div></div>
+    <div class="result-body"><div class="stats"><div class="stat good"><b id="correctStat">۰</b><span>صحیح</span></div><div class="stat bad"><b id="wrongStat">۰</b><span>نادرست</span></div><div class="stat skip"><b id="skipStat">۰</b><span>بی‌پاسخ</span></div></div><div class="result-actions"><button id="reviewBtn" class="primary">مرور پاسخ‌ها</button><button id="restartBtn" class="secondary">شروع دوباره</button></div><div id="reviewList" class="review-list hidden"></div></div>
+  </section>
+</main>
+
+<div id="sheetBackdrop" class="sheet-backdrop hidden"><div class="sheet"><div id="mapView"><h3>نقشه سؤالات</h3><div id="questionMap" class="map"></div><div id="mapLegend" class="legend"></div><div class="jump-form"><input id="jumpInput" type="number" inputmode="numeric" placeholder="شماره سؤال"><button id="jumpBtn" class="primary" style="width:auto">برو</button></div></div><div class="sheet-actions"><button id="closeSheet" class="secondary">بستن</button></div></div></div>
+
+<script>
+(() => {
+  'use strict';
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#1769e0'); tg.setBackgroundColor('#f3f6fb'); } catch (_) {} }
+  const DEFAULT_BANK = 'https://raw.githubusercontent.com/maryammehrabi22-netizen/MehrabiPsychQuizBot/main/communication_disorders.json';
+  const STORAGE_KEY = 'mehrabi-psych-quiz-v2';
+  const FA = ['الف','ب','ج','د','ه','و'];
+  const el = id => document.getElementById(id);
+  const $ = {start:el('startScreen'),quiz:el('quizScreen'),result:el('resultScreen'),title:el('bankTitle'),count:el('countChip'),error:el('loadError'),startBtn:el('startBtn'),resumeBtn:el('resumeBtn'),quizTitle:el('quizTitle'),answeredMeta:el('answeredMeta'),timer:el('timer'),progress:el('progressBar'),qnum:el('questionNumber'),status:el('questionStatus'),theme:el('questionTheme'),stem:el('questionStem'),options:el('options'),flag:el('flagBtn'),skip:el('skipBtn'),prev:el('prevBtn'),next:el('nextBtn'),finish:el('finishBtn'),mapOpen:el('mapBtn'),backdrop:el('sheetBackdrop'),map:el('questionMap'),legend:el('mapLegend'),closeSheet:el('closeSheet'),jumpInput:el('jumpInput'),jumpBtn:el('jumpBtn'),scoreRing:el('scoreRing'),scoreText:el('scoreText'),resultSubtitle:el('resultSubtitle'),correctStat:el('correctStat'),wrongStat:el('wrongStat'),skipStat:el('skipStat'),reviewBtn:el('reviewBtn'),restartBtn:el('restartBtn'),reviewList:el('reviewList')};
+  let questions = [], bankId = '', timerHandle = null;
+  let state = {index:0,answers:{},flags:[],skipped:[],startedAt:null,elapsed:0,finished:false};
+  const toFa = value => String(value).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+  const safe = value => String(value ?? '').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const pulse = type => { try { tg && tg.HapticFeedback && tg.HapticFeedback.impactOccurred(type || 'light'); } catch (_) {} };
+  function show(name){ ['start','quiz','result'].forEach(k=>$[k].classList.toggle('hidden',k!==name)); window.scrollTo(0,0); }
+  function validate(data){ if(!Array.isArray(data)||!data.length) throw new Error('بانک سؤال خالی است.'); return data.map((q,i)=>{ if(!q||!q.stem||!Array.isArray(q.options)||q.options.length<2||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.options.length) throw new Error(`ساختار سؤال ${i+1} معتبر نیست.`); return q; }); }
+  async function loadBank(){
+    try{
+      const param = new URLSearchParams(location.search).get('bank');
+      const url = param ? new URL(param, location.href).href : DEFAULT_BANK;
+      const res = await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error(`خطای دریافت بانک سؤال (${res.status})`);
+      questions = validate(await res.json()); bankId = url;
+      const title = questions[0].theme || 'آزمون روان‌پزشکی'; $.title.textContent=title; $.quizTitle.textContent=title; $.count.textContent=`${toFa(questions.length)} سؤال`; $.startBtn.disabled=false;
+      const saved = readSaved(); $.resumeBtn.classList.toggle('hidden',!saved || saved.finished); if(saved && !saved.finished) $.resumeBtn.textContent=`ادامه از سؤال ${toFa((saved.index||0)+1)}`;
+    }catch(err){ $.error.textContent='بانک سؤال بارگذاری نشد: '+err.message; }
+  }
+  function readSaved(){ try{ const x=JSON.parse(localStorage.getItem(STORAGE_KEY)); return x&&x.bankId===bankId&&x.total===questions.length?x.state:null; }catch(_){return null} }
+  function save(){ localStorage.setItem(STORAGE_KEY,JSON.stringify({bankId,total:questions.length,state})); }
+  function fresh(){ state={index:0,answers:{},flags:[],skipped:[],startedAt:Date.now(),elapsed:0,finished:false}; save(); }
+  function start(resume){ if(resume){ state=readSaved()||state; state.startedAt=Date.now(); } else fresh(); show('quiz'); render(); startTimer(); }
+  function startTimer(){ clearInterval(timerHandle); updateTimer(); timerHandle=setInterval(updateTimer,1000); }
+  function elapsed(){ return (state.elapsed||0)+(state.startedAt?Date.now()-state.startedAt:0); }
+  function updateTimer(){ const s=Math.floor(elapsed()/1000),m=Math.floor(s/60),r=s%60; $.timer.textContent=`${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; }
+  function render(){
+    const q=questions[state.index], answered=Object.prototype.hasOwnProperty.call(state.answers,state.index), selected=state.answers[state.index];
+    $.qnum.textContent=`سؤال ${toFa(state.index+1)} از ${toFa(questions.length)}`; $.theme.textContent=q.theme||'آزمون روان‌پزشکی'; $.stem.textContent=q.stem;
+    const answeredCount=Object.keys(state.answers).length; $.answeredMeta.textContent=`${toFa(answeredCount)} پاسخ داده‌شده از ${toFa(questions.length)}`; $.progress.style.width=`${((state.index+1)/questions.length)*100}%`;
+    $.status.textContent=answered?'پاسخ ثبت شد':state.skipped.includes(state.index)?'رد شده':'بی‌پاسخ';
+    $.options.innerHTML=q.options.map((opt,i)=>`<button class="option ${selected===i?'selected':''}" data-option="${i}"><span class="letter">${FA[i]||toFa(i+1)}</span><span>${safe(opt)}</span></button>`).join('');
+    $.options.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>selectAnswer(Number(btn.dataset.option))));
+    const flagged=state.flags.includes(state.index); $.flag.classList.toggle('on',flagged); $.flag.textContent=flagged?'★ علامت‌گذاری شده':'☆ علامت برای مرور'; $.skip.textContent=state.skipped.includes(state.index)?'برداشتن رد سؤال':'رد کردن سؤال';
+    $.prev.disabled=state.index===0; $.next.textContent=state.index===questions.length-1?'مشاهده کارنامه':'بعدی'; save();
+  }
+  function selectAnswer(i){ state.answers[state.index]=i; state.skipped=state.skipped.filter(x=>x!==state.index); pulse('light'); render(); }
+  function go(index){ state.index=Math.max(0,Math.min(questions.length-1,index)); closeSheet(); render(); window.scrollTo({top:0,behavior:'smooth'}); }
+  function toggleFlag(){ const i=state.flags.indexOf(state.index); i<0?state.flags.push(state.index):state.flags.splice(i,1); pulse(); render(); }
+  function toggleSkip(){ if(Object.prototype.hasOwnProperty.call(state.answers,state.index)) delete state.answers[state.index]; const i=state.skipped.indexOf(state.index); i<0?state.skipped.push(state.index):state.skipped.splice(i,1); render(); }
+  function openMap(resultMode=false){
+    $.map.innerHTML=questions.map((_,i)=>{let cls=''; if(resultMode){ if(!Object.prototype.hasOwnProperty.call(state.answers,i))cls='skipped';else cls=state.answers[i]===questions[i].correct?'correct':'wrong'; }else{ if(Object.prototype.hasOwnProperty.call(state.answers,i))cls='answered'; if(state.flags.includes(i))cls+=' flagged'; if(i===state.index)cls+=' current'; } return `<button class="map-btn ${cls}" data-i="${i}">${toFa(i+1)}</button>`}).join('');
+    $.map.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>resultMode?scrollReview(Number(b.dataset.i)):go(Number(b.dataset.i))));
+    $.legend.innerHTML=resultMode?'<span><i class="dot" style="background:#62c79e"></i>صحیح</span><span><i class="dot" style="background:#ed8d96"></i>نادرست</span><span><i class="dot" style="background:#e8c05a"></i>بی‌پاسخ</span>':'<span><i class="dot" style="background:#72aaf0"></i>پاسخ‌داده‌شده</span><span><i class="dot" style="background:#f4a318"></i>علامت‌دار</span>';
+    $.backdrop.classList.remove('hidden');
+  }
+  function closeSheet(){ $.backdrop.classList.add('hidden'); $.jumpInput.value=''; }
+  function askFinish(){ const unanswered=questions.length-Object.keys(state.answers).length; const msg=unanswered?`${toFa(unanswered)} سؤال بی‌پاسخ است. آزمون پایان یابد؟`:'آزمون پایان یابد و کارنامه نمایش داده شود؟'; if(confirm(msg)) finish(); }
+  function finish(){ state.elapsed=elapsed(); state.startedAt=null; state.finished=true; save(); clearInterval(timerHandle); showResult(); }
+  function showResult(){
+    let correct=0; Object.entries(state.answers).forEach(([i,a])=>{if(questions[Number(i)].correct===a)correct++}); const answered=Object.keys(state.answers).length,wrong=answered-correct,skip=questions.length-answered,pct=Math.round(correct/questions.length*100);
+    $.scoreRing.style.setProperty('--score',`${pct*3.6}deg`); $.scoreText.textContent=toFa(pct)+'٪'; $.correctStat.textContent=toFa(correct); $.wrongStat.textContent=toFa(wrong); $.skipStat.textContent=toFa(skip); $.resultSubtitle.textContent=`${toFa(questions.length)} سؤال • زمان ${toFa(Math.floor((state.elapsed||0)/60000))} دقیقه`; $.reviewList.classList.add('hidden'); $.reviewList.innerHTML=''; $.reviewBtn.textContent='مرور پاسخ‌ها'; show('result');
+  }
+  function buildReview(){
+    $.reviewList.innerHTML=questions.map((q,i)=>{const has=Object.prototype.hasOwnProperty.call(state.answers,i),ans=state.answers[i],ok=has&&ans===q.correct,cls=!has?'skip':ok?'good':'bad'; return `<article id="review-${i}" class="review-item ${cls}"><button data-review="${i}">سؤال ${toFa(i+1)} — ${!has?'بی‌پاسخ':ok?'صحیح':'نادرست'} ▾</button><div class="review-detail hidden"><div>${safe(q.stem).replace(/\n/g,'<br>')}</div>${has?`<div class="answer-line ${ok?'correct-text':'wrong-text'}">پاسخ شما: ${FA[ans]}) ${safe(q.options[ans])}</div>`:'<div class="answer-line wrong-text">پاسخی ثبت نشده است.</div>'}<div class="answer-line correct-text">پاسخ صحیح: ${FA[q.correct]}) ${safe(q.options[q.correct])}</div>${q.explanation?`<div class="explain"><b>توضیح:</b><br>${safe(q.explanation)}</div>`:''}${q.trap?`<div class="explain"><b>دام تستی:</b><br>${safe(q.trap)}</div>`:''}${q.rule?`<div class="explain"><b>قاعده کلیدی:</b><br>${safe(q.rule)}</div>`:''}</div></article>`}).join('');
+    $.reviewList.querySelectorAll('[data-review]').forEach(b=>b.addEventListener('click',()=>b.nextElementSibling.classList.toggle('hidden'))); $.reviewList.classList.remove('hidden'); $.reviewBtn.textContent='نقشه نتیجه';
+  }
+  function scrollReview(i){ closeSheet(); const node=el(`review-${i}`); if(node){node.querySelector('.review-detail').classList.remove('hidden'); node.scrollIntoView({behavior:'smooth',block:'start'});} }
+  $.startBtn.addEventListener('click',()=>start(false)); $.resumeBtn.addEventListener('click',()=>start(true)); $.flag.addEventListener('click',toggleFlag); $.skip.addEventListener('click',toggleSkip); $.prev.addEventListener('click',()=>go(state.index-1)); $.next.addEventListener('click',()=>state.index===questions.length-1?askFinish():go(state.index+1)); $.finish.addEventListener('click',askFinish); $.mapOpen.addEventListener('click',()=>openMap(false)); $.closeSheet.addEventListener('click',closeSheet); $.backdrop.addEventListener('click',e=>{if(e.target===$.backdrop)closeSheet()}); $.jumpBtn.addEventListener('click',()=>{const n=Number($.jumpInput.value); if(n>=1&&n<=questions.length)go(n-1);else alert(`شماره‌ای بین ۱ تا ${questions.length} وارد کنید.`)}); $.reviewBtn.addEventListener('click',()=>$.reviewList.innerHTML?openMap(true):buildReview()); $.restartBtn.addEventListener('click',()=>{if(confirm('آزمون از ابتدا شروع شود؟'))start(false)});
+  if(tg && tg.BackButton){ tg.BackButton.show(); tg.BackButton.onClick(()=>{ if(!$.backdrop.classList.contains('hidden'))closeSheet(); else if(!$.quiz.classList.contains('hidden'))askFinish(); else if(!$.result.classList.contains('hidden'))show('start'); else tg.close(); }); }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.startedAt){state.elapsed=elapsed();state.startedAt=Date.now();save()}}); loadBank();
+})();
+</script>
+</body>
+</html>
