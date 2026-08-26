@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#1769e0">
   <title>آزمون روان‌پزشکی دکتر مریم محرابی</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{--blue:#1769e0;--blue2:#0d54bd;--bg:#f3f6fb;--card:#fff;--text:#152238;--muted:#6d7b91;--line:#dfe6f1;--green:#18a86b;--red:#e34d59;--amber:#f4a318;--shadow:0 10px 30px rgba(25,52,92,.10)}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,"Vazirmatn",Arial,sans-serif;background:var(--bg);color:var(--text)}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}
@@ -18,29 +21,65 @@
     .result-head{background:linear-gradient(145deg,#0b56c4,#2486f3);color:#fff;text-align:center;padding:calc(25px + env(safe-area-inset-top)) 18px 52px;border-radius:0 0 36px 36px}.result-head h2{margin:10px 0 4px}.score-ring{width:126px;height:126px;border-radius:50%;margin:20px auto -98px;background:conic-gradient(#fff var(--score),rgba(255,255,255,.24) 0);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18)}.score-ring:after{content:"";position:absolute;width:102px;height:102px;border-radius:50%;background:#1769e0}.score-text{position:relative;z-index:1;font-weight:900;font-size:25px}.result-body{max-width:760px;margin:75px auto 20px;padding:0 14px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#fff;border-radius:15px;padding:14px 7px;text-align:center;box-shadow:var(--shadow)}.stat b{display:block;font-size:21px;margin-bottom:4px}.stat span{font-size:12px;color:var(--muted)}.stat.good b{color:var(--green)}.stat.bad b{color:var(--red)}.stat.skip b{color:var(--amber)}.result-actions{display:grid;gap:10px;margin-top:15px}.review-list{display:grid;gap:10px;margin-top:16px}.review-item{background:#fff;border-radius:14px;padding:14px;border-right:5px solid var(--line);box-shadow:0 5px 18px rgba(30,55,90,.06)}.review-item.good{border-color:var(--green)}.review-item.bad{border-color:var(--red)}.review-item.skip{border-color:var(--amber)}.review-item button{border:0;background:transparent;width:100%;text-align:right;color:var(--text);font-weight:700}.review-detail{border-top:1px solid var(--line);margin-top:11px;padding-top:11px;font-size:13px;line-height:1.9;color:#42536a}.answer-line{padding:6px 0}.correct-text{color:var(--green);font-weight:800}.wrong-text{color:var(--red);font-weight:800}.explain{background:#f4f8fd;border-radius:11px;padding:10px;margin-top:7px;white-space:pre-line}
     .sheet-backdrop{position:fixed;inset:0;background:rgba(11,28,51,.5);z-index:20;display:grid;align-items:end}.sheet{background:#fff;border-radius:24px 24px 0 0;padding:18px 16px calc(20px + env(safe-area-inset-bottom));max-height:82dvh;overflow:auto}.sheet h3{margin:2px 0 15px}.map{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;direction:rtl}.map-btn{aspect-ratio:1;border:1px solid var(--line);background:#f3f6fa;border-radius:10px;color:#50647d;font-weight:800}.map-btn.answered{background:#dcecff;border-color:#72aaf0;color:#125bb9}.map-btn.flagged{box-shadow:inset 0 -4px var(--amber)}.map-btn.current{outline:3px solid var(--blue)}.map-btn.correct{background:#dff7ed;border-color:#6bcda5;color:#08794b}.map-btn.wrong{background:#ffe5e7;border-color:#f09ca3;color:#b12632}.map-btn.skipped{background:#fff4d9;border-color:#edc667;color:#8a6000}.legend{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;color:var(--muted);font-size:12px}.dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-left:4px}.sheet-actions{display:flex;gap:9px;margin-top:15px}.sheet-actions button{flex:1}.jump-form{display:flex;gap:9px}.jump-form input{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:12px;text-align:center;outline:0}.jump-form input:focus{border-color:var(--blue)}
     @media(min-width:700px){.map{grid-template-columns:repeat(10,1fr)}.question-card{padding:25px 28px}.stem{font-size:17px}.tools{grid-template-columns:180px 180px}.result-actions{grid-template-columns:1fr 1fr}}
+
+    /* Visual language matched to the supplied Telegram quiz reference */
+    :root{--blue:#3296d4;--blue2:#237dbb;--bg:#c8e2f7;--card:#f9fbfd;--text:#102b47;--muted:#6786a3;--line:#dce5ee;--shadow:0 2px 0 rgba(28,76,111,.10)}
+    html,body{font-family:"Vazirmatn",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    body{font-weight:500}.app{padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+    .hero{background:transparent;color:var(--text);padding:calc(34px + env(safe-area-inset-top)) 24px 22px;border-radius:0;text-align:center;overflow:visible}
+    .hero:after{display:none}.brand{max-width:760px}.brand-mark{width:92px;height:92px;margin:auto;background:#f8fbff;border:1px solid rgba(255,255,255,.9);border-radius:28px;font-size:38px;box-shadow:var(--shadow)}
+    .hero h1{font-size:31px;font-weight:900;margin:22px 0 4px;letter-spacing:-1px}.hero p{color:var(--muted);opacity:1;font-size:16px;font-weight:500}
+    .start-card{max-width:760px;margin:0 auto 22px;background:transparent;border-radius:0;box-shadow:none;padding:0 20px}
+    .summary-card,.intro-card{background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.9);border-radius:23px;box-shadow:var(--shadow)}
+    .summary-card{padding:12px 18px;margin-bottom:17px}.summary-row{min-height:59px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px dashed #d8e2eb;font-size:16px;color:var(--muted)}.summary-row:last-child{border-bottom:0}.summary-row b{color:var(--text);font-weight:900}.summary-label{display:flex;align-items:center;gap:8px}
+    .intro-card{padding:20px 18px;line-height:2.05;color:#315474;font-size:15px;margin-bottom:17px;text-align:right}
+    .primary{background:linear-gradient(180deg,#349bd9,#227dbb);border-radius:20px;padding:18px 20px;font-size:18px;box-shadow:0 4px 0 rgba(30,105,159,.15)}
+    .secondary{border:1px solid #dbe4ec;background:#fff;color:#2687c5;border-radius:18px;padding:15px 16px;font-weight:800}
+    .start-title,.chips,.notice{display:none}
+    .topbar{background:transparent;color:var(--text);padding:calc(22px + env(safe-area-inset-top)) 20px 14px;position:static;box-shadow:none}
+    .topline{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.toptext{display:contents}.toptext b,.meta,.icon-btn{display:none}.time,.question-pill{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.95);border-radius:18px;padding:13px 16px;font-size:14px;font-weight:800;color:#294f72;text-align:center;box-shadow:var(--shadow)}
+    .progress{grid-column:1/-1;height:7px;background:rgba(255,255,255,.75);margin:5px 0 0;border-radius:9px;overflow:hidden}.progress i{background:#36a0dd;border-radius:9px}
+    .quiz-wrap{max-width:860px;margin:4px auto 20px;padding:0 20px}.status-row{display:none}
+    .question-card{background:rgba(255,255,255,.90);border:1px solid rgba(255,255,255,.95);border-radius:23px;padding:22px 18px 18px;box-shadow:var(--shadow);border-top:1px solid rgba(255,255,255,.95)}
+    .quiz-note{color:var(--muted);font-size:14px;line-height:1.9;padding-bottom:15px;border-bottom:1px dashed #d9e4ed;margin-bottom:16px}.theme{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:5px}.stem{font-size:18px;line-height:2.15;font-weight:900;color:#102b47;text-align:right}
+    .option-texts{margin-top:16px;display:grid;gap:14px}.option-text{font-size:16px;line-height:1.9;color:#173957}.option-text b{font-weight:900;margin-left:5px}
+    .options{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 0}.option{min-height:72px;border:0;background:linear-gradient(180deg,#59abe0,#3a96d1);color:white;border-radius:17px;padding:8px;display:grid;place-items:center;box-shadow:0 4px 0 rgba(34,119,177,.14)}.option:hover{border:0;background:linear-gradient(180deg,#59abe0,#3a96d1)}.option.selected{border:4px solid #14334f;background:#eef5fb;color:#14334f;box-shadow:none}.letter{background:transparent!important;color:inherit!important;font-size:23px;font-weight:900;width:auto;height:auto}.option-copy{display:none}
+    .tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.tool,.nav button,.wide-action{border:0;background:linear-gradient(180deg,#50a6dc,#328dca);color:#fff;border-radius:18px;padding:17px 11px;font-weight:900;font-size:16px;min-height:64px;box-shadow:0 4px 0 rgba(37,120,176,.14)}.tool.on{color:#fff;border:3px solid #f4a318;background:#328dca}.tool.wide{grid-column:1/-1}.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.nav button{min-height:64px}.next,.prev{border:0;background:linear-gradient(180deg,#50a6dc,#328dca);color:#fff}.finish{grid-column:1/-1;background:linear-gradient(180deg,#3999d3,#277fb9)!important;color:#fff!important;font-size:16px!important;padding:17px!important}.extra-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.wide-action{width:100%}
+    .sheet-backdrop{background:rgba(42,75,105,.50);padding:20px;align-items:center}.sheet{width:min(100%,760px);margin:auto;border-radius:24px;padding:24px 18px;max-height:82dvh}.sheet h3{font-size:22px;font-weight:900}.map{grid-template-columns:repeat(5,1fr);gap:9px}.map-btn{background:#e8f1f9;border:0;border-radius:15px;font-size:17px;color:#315778}.map-btn.current{outline:4px solid #153652}.sheet-actions button{font-size:17px}
+    .result-head{background:transparent;color:var(--text);padding:calc(28px + env(safe-area-inset-top)) 18px 20px;border-radius:0}.result-head h2{font-size:29px}.score-ring{background:conic-gradient(#278ccd var(--score),rgba(255,255,255,.6) 0);margin:20px auto -70px}.score-ring:after{background:#eef7fd}.score-text{color:#173a57}.result-body{margin:55px auto 20px}.stat,.review-item{background:rgba(255,255,255,.9);box-shadow:var(--shadow)}
+    @media(min-width:700px){.hero h1{font-size:38px}.stem{font-size:21px}.question-card{padding:27px 30px}.tools{grid-template-columns:1fr 1fr}.map{grid-template-columns:repeat(6,1fr)}}
   </style>
 </head>
 <body>
 <main class="app">
   <section id="startScreen" class="screen">
-    <div class="hero"><div class="brand"><div class="brand-mark">Ψ</div><h1>آزمون روان‌پزشکی</h1><p>مرور هدفمند سؤالات بورد با امکان علامت‌گذاری و تحلیل پاسخ‌ها</p></div></div>
+    <div class="hero"><div class="brand"><div class="brand-mark">☕💥</div><h1>آزمون‌ساز روان‌پزشکی</h1><p>Mehrabi Psych QBank · آزمون چندگزینه‌ای</p></div></div>
     <div class="start-card">
       <div id="bankTitle" class="start-title">در حال دریافت بانک سؤال…</div>
       <div class="chips"><span id="countChip" class="chip">— سؤال</span><span class="chip">نمایش پاسخ پس از پایان</span><span class="chip">ذخیره خودکار پیشرفت</span></div>
       <div class="notice">در طول آزمون می‌توانید سؤال‌ها را رد کنید یا برای مرور علامت بزنید. پاسخ صحیح و توضیحات فقط بعد از پایان آزمون نمایش داده می‌شوند.</div>
-      <button id="startBtn" class="primary" disabled>شروع آزمون</button>
+      <div class="summary-card">
+        <div class="summary-row"><span class="summary-label">📝 تعداد سؤالات</span><b id="summaryCount">—</b></div>
+        <div class="summary-row"><span class="summary-label">🎚️ سطح</span><b>استاندارد</b></div>
+        <div class="summary-row"><span class="summary-label">🔒 پاسخ صحیح</span><b>پس از پایان آزمون</b></div>
+        <div class="summary-row"><span class="summary-label">🏁 آخرین نتیجه</span><b id="lastResult">—</b></div>
+      </div>
+      <div class="intro-card">هر سؤال را با انتخاب یکی از گزینه‌های الف / ب / ج / د پاسخ دهید. می‌توانید سؤال را بدون پاسخ رد کنید، برای مرور آخر علامت بزنید و در پایان کارنامهٔ کامل با پاسخ‌های صحیح را ببینید.</div>
+      <button id="startBtn" class="primary" disabled>🚀 شروع آزمون</button>
       <button id="resumeBtn" class="secondary hidden" style="width:100%;margin-top:10px">ادامه آزمون قبلی</button>
       <div id="loadError" class="error"></div>
     </div>
   </section>
 
   <section id="quizScreen" class="screen hidden">
-    <header class="topbar"><div class="topline"><button id="mapBtn" class="icon-btn" aria-label="نقشه سؤالات">▦</button><div class="toptext"><b id="quizTitle">آزمون</b><div id="answeredMeta" class="meta"></div></div><div id="timer" class="time">00:00</div></div><div class="progress"><i id="progressBar"></i></div></header>
+    <header class="topbar"><div class="topline"><div id="timer" class="time">00:00</div><div id="questionPill" class="question-pill">سؤال ۱</div><div class="toptext"><b id="quizTitle">آزمون</b><div id="answeredMeta" class="meta"></div></div><div class="progress"><i id="progressBar"></i></div></div></header>
     <div class="quiz-wrap">
       <div class="status-row"><div id="questionNumber" class="qnum"></div><div id="questionStatus" class="badge"></div></div>
-      <article class="question-card"><div id="questionTheme" class="theme"></div><div id="questionStem" class="stem"></div><div id="options" class="options"></div></article>
-      <div class="tools"><button id="flagBtn" class="tool">☆ علامت برای مرور</button><button id="skipBtn" class="tool">رد کردن سؤال</button></div>
-      <div class="nav"><button id="prevBtn" class="prev">قبلی</button><button id="finishBtn" class="finish">پایان آزمون</button><button id="nextBtn" class="next">بعدی</button></div>
+      <article class="question-card"><div class="quiz-note">🔒 پاسخ صحیح پس از پایان آزمون نمایش داده می‌شود.</div><div id="questionTheme" class="theme"></div><div id="questionStem" class="stem"></div><div id="optionTexts" class="option-texts"></div></article>
+      <div id="options" class="options"></div>
+      <div class="tools"><button id="skipBtn" class="tool wide">⚪ بدون پاسخ و رفتن بعدی</button><button id="flagBtn" class="tool wide">🏷️ علامت برای مرور آخر</button></div>
+      <div class="nav"><button id="nextBtn" class="next">بعدی ➡️</button><button id="prevBtn" class="prev">⬅️ قبلی</button><button id="finishBtn" class="finish">🏁 پایان آزمون</button></div>
+      <div class="extra-nav"><button id="mapBtn" class="wide-action">📋 نقشه پاسخ‌ها</button><button id="jumpOpen" class="wide-action">🔢 رفتن به شماره سؤال</button></div>
     </div>
   </section>
 
@@ -61,7 +100,7 @@
   const STORAGE_KEY = 'mehrabi-psych-quiz-v2';
   const FA = ['الف','ب','ج','د','ه','و'];
   const el = id => document.getElementById(id);
-  const $ = {start:el('startScreen'),quiz:el('quizScreen'),result:el('resultScreen'),title:el('bankTitle'),count:el('countChip'),error:el('loadError'),startBtn:el('startBtn'),resumeBtn:el('resumeBtn'),quizTitle:el('quizTitle'),answeredMeta:el('answeredMeta'),timer:el('timer'),progress:el('progressBar'),qnum:el('questionNumber'),status:el('questionStatus'),theme:el('questionTheme'),stem:el('questionStem'),options:el('options'),flag:el('flagBtn'),skip:el('skipBtn'),prev:el('prevBtn'),next:el('nextBtn'),finish:el('finishBtn'),mapOpen:el('mapBtn'),backdrop:el('sheetBackdrop'),map:el('questionMap'),legend:el('mapLegend'),closeSheet:el('closeSheet'),jumpInput:el('jumpInput'),jumpBtn:el('jumpBtn'),scoreRing:el('scoreRing'),scoreText:el('scoreText'),resultSubtitle:el('resultSubtitle'),correctStat:el('correctStat'),wrongStat:el('wrongStat'),skipStat:el('skipStat'),reviewBtn:el('reviewBtn'),restartBtn:el('restartBtn'),reviewList:el('reviewList')};
+  const $ = {start:el('startScreen'),quiz:el('quizScreen'),result:el('resultScreen'),title:el('bankTitle'),count:el('countChip'),summaryCount:el('summaryCount'),lastResult:el('lastResult'),error:el('loadError'),startBtn:el('startBtn'),resumeBtn:el('resumeBtn'),quizTitle:el('quizTitle'),answeredMeta:el('answeredMeta'),timer:el('timer'),questionPill:el('questionPill'),progress:el('progressBar'),qnum:el('questionNumber'),status:el('questionStatus'),theme:el('questionTheme'),stem:el('questionStem'),optionTexts:el('optionTexts'),options:el('options'),flag:el('flagBtn'),skip:el('skipBtn'),prev:el('prevBtn'),next:el('nextBtn'),finish:el('finishBtn'),mapOpen:el('mapBtn'),jumpOpen:el('jumpOpen'),backdrop:el('sheetBackdrop'),map:el('questionMap'),legend:el('mapLegend'),closeSheet:el('closeSheet'),jumpInput:el('jumpInput'),jumpBtn:el('jumpBtn'),scoreRing:el('scoreRing'),scoreText:el('scoreText'),resultSubtitle:el('resultSubtitle'),correctStat:el('correctStat'),wrongStat:el('wrongStat'),skipStat:el('skipStat'),reviewBtn:el('reviewBtn'),restartBtn:el('restartBtn'),reviewList:el('reviewList')};
   let questions = [], bankId = '', timerHandle = null;
   let state = {index:0,answers:{},flags:[],skipped:[],startedAt:null,elapsed:0,finished:false};
   const toFa = value => String(value).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
@@ -75,8 +114,9 @@
       const url = param ? new URL(param, location.href).href : DEFAULT_BANK;
       const res = await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error(`خطای دریافت بانک سؤال (${res.status})`);
       questions = validate(await res.json()); bankId = url;
-      const title = questions[0].theme || 'آزمون روان‌پزشکی'; $.title.textContent=title; $.quizTitle.textContent=title; $.count.textContent=`${toFa(questions.length)} سؤال`; $.startBtn.disabled=false;
+      const title = questions[0].theme || 'آزمون روان‌پزشکی'; $.title.textContent=title; $.quizTitle.textContent=title; $.count.textContent=`${toFa(questions.length)} سؤال`; $.summaryCount.textContent=toFa(questions.length); $.startBtn.disabled=false;
       const saved = readSaved(); $.resumeBtn.classList.toggle('hidden',!saved || saved.finished); if(saved && !saved.finished) $.resumeBtn.textContent=`ادامه از سؤال ${toFa((saved.index||0)+1)}`;
+      if(saved && saved.finished){ let good=0; Object.entries(saved.answers||{}).forEach(([i,a])=>{if(questions[Number(i)]&&questions[Number(i)].correct===a)good++}); $.lastResult.textContent=`${toFa(good)} از ${toFa(questions.length)} (${toFa(Math.round(good/questions.length*100))}٪)`; }
     }catch(err){ $.error.textContent='بانک سؤال بارگذاری نشد: '+err.message; }
   }
   function readSaved(){ try{ const x=JSON.parse(localStorage.getItem(STORAGE_KEY)); return x&&x.bankId===bankId&&x.total===questions.length?x.state:null; }catch(_){return null} }
@@ -88,10 +128,11 @@
   function updateTimer(){ const s=Math.floor(elapsed()/1000),m=Math.floor(s/60),r=s%60; $.timer.textContent=`${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; }
   function render(){
     const q=questions[state.index], answered=Object.prototype.hasOwnProperty.call(state.answers,state.index), selected=state.answers[state.index];
-    $.qnum.textContent=`سؤال ${toFa(state.index+1)} از ${toFa(questions.length)}`; $.theme.textContent=q.theme||'آزمون روان‌پزشکی'; $.stem.textContent=q.stem;
+    $.qnum.textContent=`سؤال ${toFa(state.index+1)} از ${toFa(questions.length)}`; $.questionPill.textContent=`سؤال ${toFa(state.index+1)} از ${toFa(questions.length)}`; $.theme.textContent=q.theme||'آزمون روان‌پزشکی'; $.stem.textContent=q.stem;
     const answeredCount=Object.keys(state.answers).length; $.answeredMeta.textContent=`${toFa(answeredCount)} پاسخ داده‌شده از ${toFa(questions.length)}`; $.progress.style.width=`${((state.index+1)/questions.length)*100}%`;
     $.status.textContent=answered?'پاسخ ثبت شد':state.skipped.includes(state.index)?'رد شده':'بی‌پاسخ';
-    $.options.innerHTML=q.options.map((opt,i)=>`<button class="option ${selected===i?'selected':''}" data-option="${i}"><span class="letter">${FA[i]||toFa(i+1)}</span><span>${safe(opt)}</span></button>`).join('');
+    $.optionTexts.innerHTML=q.options.map((opt,i)=>`<div class="option-text"><b>${FA[i]||toFa(i+1)})</b> ${safe(opt)}</div>`).join('');
+    $.options.innerHTML=q.options.map((opt,i)=>`<button class="option ${selected===i?'selected':''}" data-option="${i}" aria-label="گزینه ${FA[i]||toFa(i+1)}"><span class="letter">${FA[i]||toFa(i+1)}</span><span class="option-copy">${safe(opt)}</span></button>`).join('');
     $.options.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>selectAnswer(Number(btn.dataset.option))));
     const flagged=state.flags.includes(state.index); $.flag.classList.toggle('on',flagged); $.flag.textContent=flagged?'★ علامت‌گذاری شده':'☆ علامت برای مرور'; $.skip.textContent=state.skipped.includes(state.index)?'برداشتن رد سؤال':'رد کردن سؤال';
     $.prev.disabled=state.index===0; $.next.textContent=state.index===questions.length-1?'مشاهده کارنامه':'بعدی'; save();
@@ -99,7 +140,7 @@
   function selectAnswer(i){ state.answers[state.index]=i; state.skipped=state.skipped.filter(x=>x!==state.index); pulse('light'); render(); }
   function go(index){ state.index=Math.max(0,Math.min(questions.length-1,index)); closeSheet(); render(); window.scrollTo({top:0,behavior:'smooth'}); }
   function toggleFlag(){ const i=state.flags.indexOf(state.index); i<0?state.flags.push(state.index):state.flags.splice(i,1); pulse(); render(); }
-  function toggleSkip(){ if(Object.prototype.hasOwnProperty.call(state.answers,state.index)) delete state.answers[state.index]; const i=state.skipped.indexOf(state.index); i<0?state.skipped.push(state.index):state.skipped.splice(i,1); render(); }
+  function toggleSkip(){ if(Object.prototype.hasOwnProperty.call(state.answers,state.index)) delete state.answers[state.index]; if(!state.skipped.includes(state.index))state.skipped.push(state.index); pulse(); if(state.index<questions.length-1)go(state.index+1); else render(); }
   function openMap(resultMode=false){
     $.map.innerHTML=questions.map((_,i)=>{let cls=''; if(resultMode){ if(!Object.prototype.hasOwnProperty.call(state.answers,i))cls='skipped';else cls=state.answers[i]===questions[i].correct?'correct':'wrong'; }else{ if(Object.prototype.hasOwnProperty.call(state.answers,i))cls='answered'; if(state.flags.includes(i))cls+=' flagged'; if(i===state.index)cls+=' current'; } return `<button class="map-btn ${cls}" data-i="${i}">${toFa(i+1)}</button>`}).join('');
     $.map.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>resultMode?scrollReview(Number(b.dataset.i)):go(Number(b.dataset.i))));
@@ -118,7 +159,7 @@
     $.reviewList.querySelectorAll('[data-review]').forEach(b=>b.addEventListener('click',()=>b.nextElementSibling.classList.toggle('hidden'))); $.reviewList.classList.remove('hidden'); $.reviewBtn.textContent='نقشه نتیجه';
   }
   function scrollReview(i){ closeSheet(); const node=el(`review-${i}`); if(node){node.querySelector('.review-detail').classList.remove('hidden'); node.scrollIntoView({behavior:'smooth',block:'start'});} }
-  $.startBtn.addEventListener('click',()=>start(false)); $.resumeBtn.addEventListener('click',()=>start(true)); $.flag.addEventListener('click',toggleFlag); $.skip.addEventListener('click',toggleSkip); $.prev.addEventListener('click',()=>go(state.index-1)); $.next.addEventListener('click',()=>state.index===questions.length-1?askFinish():go(state.index+1)); $.finish.addEventListener('click',askFinish); $.mapOpen.addEventListener('click',()=>openMap(false)); $.closeSheet.addEventListener('click',closeSheet); $.backdrop.addEventListener('click',e=>{if(e.target===$.backdrop)closeSheet()}); $.jumpBtn.addEventListener('click',()=>{const n=Number($.jumpInput.value); if(n>=1&&n<=questions.length)go(n-1);else alert(`شماره‌ای بین ۱ تا ${questions.length} وارد کنید.`)}); $.reviewBtn.addEventListener('click',()=>$.reviewList.innerHTML?openMap(true):buildReview()); $.restartBtn.addEventListener('click',()=>{if(confirm('آزمون از ابتدا شروع شود؟'))start(false)});
+  $.startBtn.addEventListener('click',()=>start(false)); $.resumeBtn.addEventListener('click',()=>start(true)); $.flag.addEventListener('click',toggleFlag); $.skip.addEventListener('click',toggleSkip); $.prev.addEventListener('click',()=>go(state.index-1)); $.next.addEventListener('click',()=>state.index===questions.length-1?askFinish():go(state.index+1)); $.finish.addEventListener('click',askFinish); $.mapOpen.addEventListener('click',()=>openMap(false)); $.jumpOpen.addEventListener('click',()=>{openMap(false);setTimeout(()=>$.jumpInput.focus(),120)}); $.closeSheet.addEventListener('click',closeSheet); $.backdrop.addEventListener('click',e=>{if(e.target===$.backdrop)closeSheet()}); $.jumpBtn.addEventListener('click',()=>{const n=Number($.jumpInput.value); if(n>=1&&n<=questions.length)go(n-1);else alert(`شماره‌ای بین ۱ تا ${questions.length} وارد کنید.`)}); $.reviewBtn.addEventListener('click',()=>$.reviewList.innerHTML?openMap(true):buildReview()); $.restartBtn.addEventListener('click',()=>{if(confirm('آزمون از ابتدا شروع شود؟'))start(false)});
   if(tg && tg.BackButton){ tg.BackButton.show(); tg.BackButton.onClick(()=>{ if(!$.backdrop.classList.contains('hidden'))closeSheet(); else if(!$.quiz.classList.contains('hidden'))askFinish(); else if(!$.result.classList.contains('hidden'))show('start'); else tg.close(); }); }
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.startedAt){state.elapsed=elapsed();state.startedAt=Date.now();save()}}); loadBank();
 })();
