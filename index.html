@@ -48,16 +48,26 @@
     .sheet-backdrop{background:rgba(42,75,105,.50);padding:20px;align-items:center}.sheet{width:min(100%,760px);margin:auto;border-radius:24px;padding:24px 18px;max-height:82dvh}.sheet h3{font-size:22px;font-weight:900}.map{grid-template-columns:repeat(5,1fr);gap:9px}.map-btn{background:#e8f1f9;border:0;border-radius:15px;font-size:17px;color:#315778}.map-btn.current{outline:4px solid #153652}.sheet-actions button{font-size:17px}
     .result-head{background:transparent;color:var(--text);padding:calc(28px + env(safe-area-inset-top)) 18px 20px;border-radius:0}.result-head h2{font-size:29px}.score-ring{background:conic-gradient(#278ccd var(--score),rgba(255,255,255,.6) 0);margin:20px auto -70px}.score-ring:after{background:#eef7fd}.score-text{color:#173a57}.result-body{margin:55px auto 20px}.stat,.review-item{background:rgba(255,255,255,.9);box-shadow:var(--shadow)}
     @media(min-width:700px){.hero h1{font-size:38px}.stem{font-size:21px}.question-card{padding:27px 30px}.tools{grid-template-columns:1fr 1fr}.map{grid-template-columns:repeat(6,1fr)}}
+
+    /* Flashcard section */
+    .learning-menu{display:grid;gap:12px;margin-bottom:17px}.learning-card{width:100%;border:1px solid rgba(255,255,255,.95);background:rgba(255,255,255,.9);border-radius:23px;padding:18px;display:flex;align-items:center;gap:14px;text-align:right;color:var(--text);box-shadow:var(--shadow)}.learning-card .menu-icon{width:54px;height:54px;flex:0 0 54px;display:grid;place-items:center;border-radius:17px;background:#e4f2fc;font-size:27px}.learning-card .menu-copy{flex:1;min-width:0}.learning-card b{display:block;font-size:17px;font-weight:900;margin-bottom:5px}.learning-card small{display:block;color:var(--muted);line-height:1.7;font-size:13px}.learning-card .menu-arrow{font-size:24px;color:#3498d4}.learning-card.flash-entry{border:2px solid rgba(132,104,162,.22);background:#f4f0f6}.learning-card.flash-entry .menu-icon{background:#e5dceb}.learning-card.flash-entry .menu-arrow{color:#806396}
+    #flashScreen{min-height:100vh;min-height:100dvh;background:#ded5e3;color:#392f43}.flash-top{max-width:860px;margin:auto;padding:calc(20px + env(safe-area-inset-top)) 20px 10px;display:flex;align-items:center;gap:10px}.flash-back{width:46px;height:46px;border:0;border-radius:15px;background:rgba(255,255,255,.72);color:#735887;font-size:22px;box-shadow:0 2px 0 rgba(74,55,86,.08)}.flash-heading{flex:1}.flash-heading b{display:block;font-size:18px;font-weight:900}.flash-heading span{display:block;color:#7d6d86;font-size:12px;margin-top:4px}.flash-wrap{max-width:860px;margin:auto;padding:8px 20px 25px}.flash-progress{height:8px;background:rgba(255,255,255,.58);border-radius:10px;overflow:hidden;margin:4px 0 16px}.flash-progress i{display:block;height:100%;background:#8d70a2;border-radius:10px;transition:width .25s}.flash-category{display:inline-block;background:rgba(255,255,255,.64);color:#715684;border-radius:12px;padding:8px 12px;font-size:13px;font-weight:800;margin-bottom:10px}.flash-card{width:100%;min-height:370px;border:1px solid rgba(255,255,255,.76);background:rgba(248,246,249,.88);border-radius:27px;padding:25px 21px;box-shadow:0 5px 0 rgba(74,55,86,.08);display:flex;flex-direction:column;text-align:right;color:#392f43;position:relative}.flash-label{font-size:13px;color:#806296;font-weight:900;margin-bottom:17px}.flash-question{font-size:20px;line-height:2.05;font-weight:900;white-space:pre-line}.flash-answer{border-top:1px dashed #cfc2d6;margin-top:22px;padding-top:20px;font-size:16px;line-height:2.05;color:#51445b;white-space:pre-line;animation:fade .2s ease}.flash-answer b{color:#705183}.flash-hint{margin-top:auto;padding-top:24px;text-align:center;color:#83748b;font-size:13px}.flash-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.flash-nav button,.reveal-btn{border:0;background:linear-gradient(180deg,#9b82aa,#816792);color:#fff;border-radius:18px;padding:16px 10px;min-height:58px;font-size:16px;font-weight:900;box-shadow:0 4px 0 rgba(89,65,103,.12)}.reveal-btn{width:100%;margin-top:13px}.flash-nav button:disabled{opacity:.42}.flash-index{text-align:center;color:#685773;font-size:14px;font-weight:800;margin-top:14px}.flash-card.is-revealed{border-color:#b29cbd}.flash-card.is-revealed .flash-label{color:#6f527f}
+    @media(min-width:700px){.learning-menu{grid-template-columns:1fr 1fr}.flash-card{min-height:410px;padding:34px}.flash-question{font-size:23px}.flash-answer{font-size:18px}}
   </style>
 </head>
 <body>
 <main class="app">
   <section id="startScreen" class="screen">
-    <div class="hero"><div class="brand"><div class="brand-mark">☕💥</div><h1>آزمون‌ساز روان‌پزشکی</h1><p>Mehrabi Psych QBank · آزمون چندگزینه‌ای</p></div></div>
+    <div class="hero"><div class="brand"><div class="brand-mark">☕💥</div><h1>Psych App</h1><p>Mehrabi Psych Learning · آزمون و فلش‌کارت</p></div></div>
     <div class="start-card">
       <div id="bankTitle" class="start-title">در حال دریافت بانک سؤال…</div>
       <div class="chips"><span id="countChip" class="chip">— سؤال</span><span class="chip">نمایش پاسخ پس از پایان</span><span class="chip">ذخیره خودکار پیشرفت</span></div>
       <div class="notice">در طول آزمون می‌توانید سؤال‌ها را رد کنید یا برای مرور علامت بزنید. پاسخ صحیح و توضیحات فقط بعد از پایان آزمون نمایش داده می‌شوند.</div>
+      <div class="learning-menu">
+        <button id="quizEntry" class="learning-card"><span class="menu-icon">📝</span><span class="menu-copy"><b>آزمون اختلالات ارتباطی</b><small>۳۰ سؤال چهارگزینه‌ای با کارنامه و مرور پاسخ‌ها</small></span><span class="menu-arrow">‹</span></button>
+        <button id="flashEntry" class="learning-card flash-entry"><span class="menu-icon">🧠</span><span class="menu-copy"><b>فلش‌کارت ناتوانی ذهنی</b><small>۳۹ کارت آموزشی فارسی با اصطلاحات انگلیسی</small></span><span class="menu-arrow">‹</span></button>
+      </div>
+      <div id="quizStartDetails" class="hidden">
       <div class="summary-card">
         <div class="summary-row"><span class="summary-label">📝 تعداد سؤالات</span><b id="summaryCount">—</b></div>
         <div class="summary-row"><span class="summary-label">🎚️ سطح</span><b>استاندارد</b></div>
@@ -68,6 +78,24 @@
       <button id="startBtn" class="primary" disabled>🚀 شروع آزمون</button>
       <button id="resumeBtn" class="secondary hidden" style="width:100%;margin-top:10px">ادامه آزمون قبلی</button>
       <div id="loadError" class="error"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flashScreen" class="screen hidden">
+    <header class="flash-top"><button id="flashBack" class="flash-back" aria-label="بازگشت">→</button><div class="flash-heading"><b>ناتوانی ذهنی</b><span>Intellectual Disability · Flashcards</span></div></header>
+    <div class="flash-wrap">
+      <div class="flash-progress"><i id="flashProgress"></i></div>
+      <div id="flashCategory" class="flash-category"></div>
+      <article id="flashCard" class="flash-card" tabindex="0" role="button" aria-label="نمایش پاسخ">
+        <div id="flashLabel" class="flash-label">سؤال</div>
+        <div id="flashQuestion" class="flash-question"></div>
+        <div id="flashAnswer" class="flash-answer hidden"></div>
+        <div id="flashHint" class="flash-hint">برای دیدن پاسخ، کارت را لمس کنید.</div>
+      </article>
+      <button id="revealFlash" class="reveal-btn">نمایش پاسخ</button>
+      <div class="flash-nav"><button id="flashNext">کارت بعدی ←</button><button id="flashPrev">→ کارت قبلی</button></div>
+      <div id="flashIndex" class="flash-index"></div>
     </div>
   </section>
 
@@ -98,15 +126,58 @@
   if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor('#1769e0'); tg.setBackgroundColor('#f3f6fb'); } catch (_) {} }
   const DEFAULT_BANK = 'https://raw.githubusercontent.com/maryammehrabi22-netizen/MehrabiPsychQuizBot/main/communication_disorders.json';
   const STORAGE_KEY = 'mehrabi-psych-quiz-v2';
+  const FLASH_STORAGE_KEY = 'mehrabi-id-flashcards-v1';
   const FA = ['الف','ب','ج','د','ه','و'];
+  const FLASHCARDS = [
+    {c:'تعریف و مفاهیم پایه',q:'ناتوانی ذهنی (Intellectual Disability; ID) قبلاً با چه اصطلاحی شناخته می‌شد؟',a:'عقب‌ماندگی ذهنی (Mental Retardation).'},
+    {c:'تعریف و مفاهیم پایه',q:'ناتوانی ذهنی (Intellectual Disability) ممکن است ناشی از چه عواملی باشد؟',a:'طیفی از عوامل محیطی (Environmental Factors) و ژنتیکی (Genetic Factors) که موجب ترکیبی از اختلالات شناختی (Cognitive Impairments) و اجتماعی (Social Impairments) می‌شوند.'},
+    {c:'تعریف و مفاهیم پایه',q:'تعریف انجمن آمریکایی ناتوانی‌های ذهنی و رشدی (American Association on Intellectual and Developmental Disabilities; AAIDD) از ناتوانی ذهنی چیست؟',a:'محدودیت قابل‌توجه در هر دو حوزه:\n\n• عملکرد ذهنی (Intellectual Functioning): استدلال، یادگیری و حل مسئله\n• رفتار انطباقی (Adaptive Behavior): مهارت‌های مفهومی، اجتماعی و عملی\n\nکه پیش از ۱۸ سالگی ظاهر می‌شود.'},
+    {c:'تعریف و مفاهیم پایه',q:'عملکرد ذهنی (Intellectual Functioning) شامل چه توانایی‌هایی است؟',a:'استدلال (Reasoning)، یادگیری (Learning) و حل مسئله (Problem-Solving).'},
+    {c:'تعریف و مفاهیم پایه',q:'رفتار انطباقی (Adaptive Behavior) شامل چه انواعی از مهارت‌هاست؟',a:'• مهارت‌های مفهومی (Conceptual Skills)\n• مهارت‌های اجتماعی (Social Skills)\n• مهارت‌های عملی (Practical Skills)'},
+    {c:'ارزیابی تشخیصی',q:'برای تعیین ناتوانی ذهنی، ارزیابی چه دو حوزه‌ای ضروری است؟',a:'۱. عملکرد ذهنی / بهره هوشی (Intellectual Functioning / IQ)\n۲. عملکرد انطباقی (Adaptive Functioning)'},
+    {c:'ارزیابی تشخیصی',q:'سنجش عملکرد انطباقی (Adaptive Function) چه مواردی را بررسی می‌کند؟',a:'• عملکرد اجتماعی (Social Functioning)\n• درک هنجارهای اجتماعی (Societal Norms)\n• انجام وظایف روزمره (Everyday Tasks)'},
+    {c:'ارزیابی تشخیصی',q:'سنجش عملکرد ذهنی (Intellectual Function) عمدتاً بر چه چیزی تمرکز دارد؟',a:'توانایی‌های شناختی (Cognitive Abilities).'},
+    {c:'ارزیابی تشخیصی',q:'آیا افراد با سطح هوشی مشابه لزوماً عملکرد انطباقی یکسانی دارند؟',a:'خیر. افراد با یک سطح ذهنی مشابه می‌توانند سطوح متفاوتی از عملکرد انطباقی (Adaptive Functioning) داشته باشند.'},
+    {c:'DSM-5',q:'در DSM-5 شدت ناتوانی ذهنی بر اساس چه چیزی تعیین می‌شود؟',a:'عملکرد انطباقی (Adaptive Functioning)، نه نمره IQ.'},
+    {c:'DSM-5 · High-Yield',q:'مهم‌ترین اصل DSM-5 در تعیین شدت Intellectual Disability چیست؟',a:'Severity → Adaptive Functioning, NOT IQ'},
+    {c:'DSM-5',q:'چرا DSM-5 برای تعیین شدت بر عملکرد انطباقی (Adaptive Functioning) تأکید دارد؟',a:'چون عملکرد انطباقی میزان حمایت موردنیاز فرد (Level of Support Required) را تعیین می‌کند.'},
+    {c:'DSM-5',q:'چرا IQ به‌تنهایی برای تعیین شدت ناتوانی ذهنی مناسب نیست؟',a:'زیرا نمرات IQ در بخش‌های پایین‌تر طیف IQ اعتبار کمتری (Less Valid) دارند.'},
+    {c:'DSM-5',q:'سه حوزه مورد ارزیابی برای تعیین شدت ناتوانی ذهنی در DSM-5 کدام‌اند؟',a:'۱. حوزه مفهومی (Conceptual Domain)\n۲. حوزه اجتماعی (Social Domain)\n۳. حوزه عملی (Practical Domain)'},
+    {c:'DSM-5',q:'مثال حوزه مفهومی (Conceptual Domain) چیست؟',a:'مهارت‌های تحصیلی (Academic Skills).'},
+    {c:'DSM-5',q:'مثال حوزه اجتماعی (Social Domain) چیست؟',a:'روابط (Relationships).'},
+    {c:'DSM-5',q:'مثال حوزه عملی (Practical Domain) چیست؟',a:'بهداشت شخصی (Personal Hygiene).'},
+    {c:'DSM-5',q:'سطوح شدت ناتوانی ذهنی در DSM-5 کدام‌اند؟',a:'• خفیف (Mild)\n• متوسط (Moderate)\n• شدید (Severe)\n• عمیق (Profound)'},
+    {c:'DSM-5 در برابر ICD-10',q:'ICD-10 برای تعیین شدت ناتوانی ذهنی عمدتاً بر چه معیاری تکیه دارد؟',a:'بهره هوشی (IQ).'},
+    {c:'DSM-5 در برابر ICD-10',q:'محدوده IQ در ناتوانی ذهنی خفیف (Mild) طبق ICD-10 چیست؟',a:'۵۰–۶۹'},
+    {c:'DSM-5 در برابر ICD-10',q:'محدوده IQ در ناتوانی ذهنی متوسط (Moderate) طبق ICD-10 چیست؟',a:'۳۵–۴۹'},
+    {c:'DSM-5 در برابر ICD-10',q:'محدوده IQ در ناتوانی ذهنی شدید (Severe) طبق ICD-10 چیست؟',a:'۲۰–۳۴'},
+    {c:'DSM-5 در برابر ICD-10',q:'محدوده IQ در ناتوانی ذهنی عمیق (Profound) طبق ICD-10 چیست؟',a:'کمتر از ۲۰'},
+    {c:'DSM-5 در برابر ICD-10 · High-Yield',q:'تفاوت اصلی DSM-5 و ICD-10 در تعیین شدت Intellectual Disability چیست؟',a:'DSM-5 → Adaptive Functioning\nICD-10 → IQ'},
+    {c:'علائم و پیامدها',q:'DSM-5 چه نقایصی را در Intellectual Disability مطرح می‌کند؟',a:'نقص در:\n\n• استدلال (Reasoning)\n• تفکر انتزاعی (Abstraction)\n• قضاوت (Judgment)\n• یادگیری (Learning)\n• عملکرد انطباقی (Adaptive Functioning)'},
+    {c:'علائم و پیامدها',q:'پیامدهای ناتوانی ذهنی بر رشد و عملکرد چیست؟',a:'• تأخیر در نقاط عطف رشدی (Developmental Milestones)\n• تأخیر در دستیابی به استقلال (Independence)\n• اختلال در عملکرد اجتماعی (Social Functioning)'},
+    {c:'علائم و پیامدها',q:'ICD-10 ناتوانی ذهنی را از نظر رشد ذهنی چگونه توصیف می‌کند؟',a:'رشد ذهنی ناکامل (Incomplete Mental Development).'},
+    {c:'علائم و پیامدها',q:'طبق ICD-10 چه مهارت‌هایی ممکن است در Intellectual Disability مختل شوند؟',a:'• شناختی (Cognitive)\n• زبانی (Language)\n• حرکتی (Motor)\n• اجتماعی (Social)'},
+    {c:'مدل AAIDD و حمایت محیطی',q:'AAIDD ناتوانی ذهنی را چگونه مفهوم‌سازی می‌کند؟',a:'به‌عنوان تعامل عملکردی میان فرد و محیط (Functional Interaction Between Individual and Environment)، نه صرفاً یک ویژگی ثابت یا مجموعه‌ای از محدودیت‌های فرد.'},
+    {c:'مدل AAIDD و حمایت محیطی',q:'چهار سطح حمایت محیطی (Environmental Support) در مدل AAIDD چیست؟',a:'۱. متناوب (Intermittent)\n۲. محدود (Limited)\n۳. گسترده (Extensive)\n۴. فراگیر (Pervasive)'},
+    {c:'مدل AAIDD و حمایت محیطی',q:'سطح حمایت محیطی (Environmental Support) بر چه اساسی تعیین می‌شود؟',a:'بر اساس نیاز فرد به حمایت در حوزه‌های مشخص عملکرد انطباقی (Adaptive Function Domains).'},
+    {c:'مدل AAIDD و حمایت محیطی',q:'حوزه‌های عملکرد انطباقی در چارچوب AAIDD کدام‌اند؟',a:'• ارتباط (Communication)\n• مراقبت از خود (Self-Care)\n• زندگی در منزل (Home Living)\n• مهارت‌های اجتماعی/بین‌فردی (Social/Interpersonal Skills)\n• استفاده از منابع جامعه (Use of Community Resources)\n• خودهدایتی (Self-Direction)\n• مهارت‌های تحصیلی کاربردی (Functional Academic Skills)\n• کار (Work)\n• اوقات فراغت (Leisure)\n• سلامت (Health)\n• ایمنی (Safety)'},
+    {c:'High-Yield',q:'مهم‌ترین معیار تعیین شدت Intellectual Disability در DSM-5 چیست؟',a:'Adaptive Functioning'},
+    {c:'High-Yield',q:'سه Domain اصلی Adaptive Functioning در DSM-5 کدام‌اند؟',a:'Conceptual + Social + Practical'},
+    {c:'High-Yield',q:'Intellectual Disability بر اساس تعریف AAIDD باید تا چه سنی شروع شده باشد؟',a:'پیش از ۱۸ سالگی.'},
+    {c:'High-Yield',q:'آیا پایین بودن IQ به‌تنهایی برای تشخیص Intellectual Disability کافی است؟',a:'خیر. هر دو مورد باید ارزیابی شوند:\n\nIntellectual Functioning + Adaptive Functioning'},
+    {c:'High-Yield',q:'چرا Adaptive Functioning از نظر بالینی اهمیت ویژه‌ای دارد؟',a:'چون میزان حمایت موردنیاز فرد (Level of Support Required) را تعیین می‌کند.'},
+    {c:'High-Yield',q:'فرمول حفظی تفاوت DSM-5 و ICD-10 در تعیین شدت چیست؟',a:'DSM-5 → Function\nICD-10 → IQ'},
+    {c:'High-Yield',q:'ترتیب محدوده‌های IQ در ICD-10 از Mild تا Profound چیست؟',a:'Mild 50–69 → Moderate 35–49 → Severe 20–34 → Profound <20'}
+  ];
   const el = id => document.getElementById(id);
-  const $ = {start:el('startScreen'),quiz:el('quizScreen'),result:el('resultScreen'),title:el('bankTitle'),count:el('countChip'),summaryCount:el('summaryCount'),lastResult:el('lastResult'),error:el('loadError'),startBtn:el('startBtn'),resumeBtn:el('resumeBtn'),quizTitle:el('quizTitle'),answeredMeta:el('answeredMeta'),timer:el('timer'),questionPill:el('questionPill'),progress:el('progressBar'),qnum:el('questionNumber'),status:el('questionStatus'),theme:el('questionTheme'),stem:el('questionStem'),optionTexts:el('optionTexts'),options:el('options'),flag:el('flagBtn'),skip:el('skipBtn'),prev:el('prevBtn'),next:el('nextBtn'),finish:el('finishBtn'),mapOpen:el('mapBtn'),jumpOpen:el('jumpOpen'),backdrop:el('sheetBackdrop'),map:el('questionMap'),legend:el('mapLegend'),closeSheet:el('closeSheet'),jumpInput:el('jumpInput'),jumpBtn:el('jumpBtn'),scoreRing:el('scoreRing'),scoreText:el('scoreText'),resultSubtitle:el('resultSubtitle'),correctStat:el('correctStat'),wrongStat:el('wrongStat'),skipStat:el('skipStat'),reviewBtn:el('reviewBtn'),restartBtn:el('restartBtn'),reviewList:el('reviewList')};
+  const $ = {start:el('startScreen'),quiz:el('quizScreen'),result:el('resultScreen'),flash:el('flashScreen'),quizEntry:el('quizEntry'),flashEntry:el('flashEntry'),quizStartDetails:el('quizStartDetails'),title:el('bankTitle'),count:el('countChip'),summaryCount:el('summaryCount'),lastResult:el('lastResult'),error:el('loadError'),startBtn:el('startBtn'),resumeBtn:el('resumeBtn'),quizTitle:el('quizTitle'),answeredMeta:el('answeredMeta'),timer:el('timer'),questionPill:el('questionPill'),progress:el('progressBar'),qnum:el('questionNumber'),status:el('questionStatus'),theme:el('questionTheme'),stem:el('questionStem'),optionTexts:el('optionTexts'),options:el('options'),flag:el('flagBtn'),skip:el('skipBtn'),prev:el('prevBtn'),next:el('nextBtn'),finish:el('finishBtn'),mapOpen:el('mapBtn'),jumpOpen:el('jumpOpen'),backdrop:el('sheetBackdrop'),map:el('questionMap'),legend:el('mapLegend'),closeSheet:el('closeSheet'),jumpInput:el('jumpInput'),jumpBtn:el('jumpBtn'),scoreRing:el('scoreRing'),scoreText:el('scoreText'),resultSubtitle:el('resultSubtitle'),correctStat:el('correctStat'),wrongStat:el('wrongStat'),skipStat:el('skipStat'),reviewBtn:el('reviewBtn'),restartBtn:el('restartBtn'),reviewList:el('reviewList'),flashBack:el('flashBack'),flashProgress:el('flashProgress'),flashCategory:el('flashCategory'),flashCard:el('flashCard'),flashLabel:el('flashLabel'),flashQuestion:el('flashQuestion'),flashAnswer:el('flashAnswer'),flashHint:el('flashHint'),revealFlash:el('revealFlash'),flashPrev:el('flashPrev'),flashNext:el('flashNext'),flashIndex:el('flashIndex')};
   let questions = [], bankId = '', timerHandle = null;
   let state = {index:0,answers:{},flags:[],skipped:[],startedAt:null,elapsed:0,finished:false};
+  let flashState = {index:0,revealed:false};
   const toFa = value => String(value).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
   const safe = value => String(value ?? '').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const pulse = type => { try { tg && tg.HapticFeedback && tg.HapticFeedback.impactOccurred(type || 'light'); } catch (_) {} };
-  function show(name){ ['start','quiz','result'].forEach(k=>$[k].classList.toggle('hidden',k!==name)); window.scrollTo(0,0); }
+  function show(name){ ['start','quiz','result','flash'].forEach(k=>$[k].classList.toggle('hidden',k!==name)); window.scrollTo(0,0); }
   function validate(data){ if(!Array.isArray(data)||!data.length) throw new Error('بانک سؤال خالی است.'); return data.map((q,i)=>{ if(!q||!q.stem||!Array.isArray(q.options)||q.options.length<2||!Number.isInteger(q.correct)||q.correct<0||q.correct>=q.options.length) throw new Error(`ساختار سؤال ${i+1} معتبر نیست.`); return q; }); }
   async function loadBank(){
     try{
@@ -122,7 +193,8 @@
   function readSaved(){ try{ const x=JSON.parse(localStorage.getItem(STORAGE_KEY)); return x&&x.bankId===bankId&&x.total===questions.length?x.state:null; }catch(_){return null} }
   function save(){ localStorage.setItem(STORAGE_KEY,JSON.stringify({bankId,total:questions.length,state})); }
   function fresh(){ state={index:0,answers:{},flags:[],skipped:[],startedAt:Date.now(),elapsed:0,finished:false}; save(); }
-  function start(resume){ if(resume){ state=readSaved()||state; state.startedAt=Date.now(); } else fresh(); show('quiz'); render(); startTimer(); }
+  function setAppColors(header,background){ try { if(tg){tg.setHeaderColor(header);tg.setBackgroundColor(background);} } catch (_) {} }
+  function start(resume){ if(resume){ state=readSaved()||state; state.startedAt=Date.now(); } else fresh(); setAppColors('#3296d4','#c8e2f7'); show('quiz'); render(); startTimer(); }
   function startTimer(){ clearInterval(timerHandle); updateTimer(); timerHandle=setInterval(updateTimer,1000); }
   function elapsed(){ return (state.elapsed||0)+(state.startedAt?Date.now()-state.startedAt:0); }
   function updateTimer(){ const s=Math.floor(elapsed()/1000),m=Math.floor(s/60),r=s%60; $.timer.textContent=`${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; }
@@ -154,13 +226,28 @@
     let correct=0; Object.entries(state.answers).forEach(([i,a])=>{if(questions[Number(i)].correct===a)correct++}); const answered=Object.keys(state.answers).length,wrong=answered-correct,skip=questions.length-answered,pct=Math.round(correct/questions.length*100);
     $.scoreRing.style.setProperty('--score',`${pct*3.6}deg`); $.scoreText.textContent=toFa(pct)+'٪'; $.correctStat.textContent=toFa(correct); $.wrongStat.textContent=toFa(wrong); $.skipStat.textContent=toFa(skip); $.resultSubtitle.textContent=`${toFa(questions.length)} سؤال • زمان ${toFa(Math.floor((state.elapsed||0)/60000))} دقیقه`; $.reviewList.classList.add('hidden'); $.reviewList.innerHTML=''; $.reviewBtn.textContent='مرور پاسخ‌ها'; show('result');
   }
+  function readFlashState(){ try{ const saved=JSON.parse(localStorage.getItem(FLASH_STORAGE_KEY)); if(saved&&Number.isInteger(saved.index)&&saved.index>=0&&saved.index<FLASHCARDS.length)return {index:saved.index,revealed:false}; }catch(_){} return {index:0,revealed:false}; }
+  function saveFlashState(){ localStorage.setItem(FLASH_STORAGE_KEY,JSON.stringify({index:flashState.index})); }
+  function renderFlash(){
+    const card=FLASHCARDS[flashState.index];
+    $.flashCategory.textContent=card.c; $.flashQuestion.textContent=card.q; $.flashAnswer.textContent=card.a;
+    $.flashAnswer.classList.toggle('hidden',!flashState.revealed); $.flashHint.classList.toggle('hidden',flashState.revealed); $.flashCard.classList.toggle('is-revealed',flashState.revealed);
+    $.flashLabel.textContent=flashState.revealed?'پاسخ':'سؤال'; $.revealFlash.textContent=flashState.revealed?'پنهان کردن پاسخ':'نمایش پاسخ';
+    $.flashProgress.style.width=`${((flashState.index+1)/FLASHCARDS.length)*100}%`; $.flashIndex.textContent=`کارت ${toFa(flashState.index+1)} از ${toFa(FLASHCARDS.length)}`;
+    $.flashPrev.disabled=flashState.index===0; $.flashNext.disabled=flashState.index===FLASHCARDS.length-1; saveFlashState();
+  }
+  function openFlash(){ flashState=readFlashState(); setAppColors('#8d70a2','#ded5e3'); show('flash'); renderFlash(); }
+  function closeFlash(){ setAppColors('#3296d4','#c8e2f7'); show('start'); }
+  function toggleFlash(){ flashState.revealed=!flashState.revealed; pulse('light'); renderFlash(); }
+  function moveFlash(delta){ const next=Math.max(0,Math.min(FLASHCARDS.length-1,flashState.index+delta)); if(next===flashState.index)return; flashState.index=next; flashState.revealed=false; pulse('light'); renderFlash(); window.scrollTo({top:0,behavior:'smooth'}); }
   function buildReview(){
     $.reviewList.innerHTML=questions.map((q,i)=>{const has=Object.prototype.hasOwnProperty.call(state.answers,i),ans=state.answers[i],ok=has&&ans===q.correct,cls=!has?'skip':ok?'good':'bad'; return `<article id="review-${i}" class="review-item ${cls}"><button data-review="${i}">سؤال ${toFa(i+1)} — ${!has?'بی‌پاسخ':ok?'صحیح':'نادرست'} ▾</button><div class="review-detail hidden"><div>${safe(q.stem).replace(/\n/g,'<br>')}</div>${has?`<div class="answer-line ${ok?'correct-text':'wrong-text'}">پاسخ شما: ${FA[ans]}) ${safe(q.options[ans])}</div>`:'<div class="answer-line wrong-text">پاسخی ثبت نشده است.</div>'}<div class="answer-line correct-text">پاسخ صحیح: ${FA[q.correct]}) ${safe(q.options[q.correct])}</div>${q.explanation?`<div class="explain"><b>توضیح:</b><br>${safe(q.explanation)}</div>`:''}${q.trap?`<div class="explain"><b>دام تستی:</b><br>${safe(q.trap)}</div>`:''}${q.rule?`<div class="explain"><b>قاعده کلیدی:</b><br>${safe(q.rule)}</div>`:''}</div></article>`}).join('');
     $.reviewList.querySelectorAll('[data-review]').forEach(b=>b.addEventListener('click',()=>b.nextElementSibling.classList.toggle('hidden'))); $.reviewList.classList.remove('hidden'); $.reviewBtn.textContent='نقشه نتیجه';
   }
   function scrollReview(i){ closeSheet(); const node=el(`review-${i}`); if(node){node.querySelector('.review-detail').classList.remove('hidden'); node.scrollIntoView({behavior:'smooth',block:'start'});} }
+  $.quizEntry.addEventListener('click',()=>{$.quizStartDetails.classList.toggle('hidden'); if(!$.quizStartDetails.classList.contains('hidden'))setTimeout(()=>$.quizStartDetails.scrollIntoView({behavior:'smooth',block:'start'}),40)}); $.flashEntry.addEventListener('click',openFlash); $.flashBack.addEventListener('click',closeFlash); $.flashCard.addEventListener('click',toggleFlash); $.flashCard.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleFlash()}}); $.revealFlash.addEventListener('click',toggleFlash); $.flashPrev.addEventListener('click',()=>moveFlash(-1)); $.flashNext.addEventListener('click',()=>moveFlash(1));
   $.startBtn.addEventListener('click',()=>start(false)); $.resumeBtn.addEventListener('click',()=>start(true)); $.flag.addEventListener('click',toggleFlag); $.skip.addEventListener('click',toggleSkip); $.prev.addEventListener('click',()=>go(state.index-1)); $.next.addEventListener('click',()=>state.index===questions.length-1?askFinish():go(state.index+1)); $.finish.addEventListener('click',askFinish); $.mapOpen.addEventListener('click',()=>openMap(false)); $.jumpOpen.addEventListener('click',()=>{openMap(false);setTimeout(()=>$.jumpInput.focus(),120)}); $.closeSheet.addEventListener('click',closeSheet); $.backdrop.addEventListener('click',e=>{if(e.target===$.backdrop)closeSheet()}); $.jumpBtn.addEventListener('click',()=>{const n=Number($.jumpInput.value); if(n>=1&&n<=questions.length)go(n-1);else alert(`شماره‌ای بین ۱ تا ${questions.length} وارد کنید.`)}); $.reviewBtn.addEventListener('click',()=>$.reviewList.innerHTML?openMap(true):buildReview()); $.restartBtn.addEventListener('click',()=>{if(confirm('آزمون از ابتدا شروع شود؟'))start(false)});
-  if(tg && tg.BackButton){ tg.BackButton.show(); tg.BackButton.onClick(()=>{ if(!$.backdrop.classList.contains('hidden'))closeSheet(); else if(!$.quiz.classList.contains('hidden'))askFinish(); else if(!$.result.classList.contains('hidden'))show('start'); else tg.close(); }); }
+  if(tg && tg.BackButton){ tg.BackButton.show(); tg.BackButton.onClick(()=>{ if(!$.backdrop.classList.contains('hidden'))closeSheet(); else if(!$.flash.classList.contains('hidden'))closeFlash(); else if(!$.quiz.classList.contains('hidden'))askFinish(); else if(!$.result.classList.contains('hidden'))show('start'); else tg.close(); }); }
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&state.startedAt){state.elapsed=elapsed();state.startedAt=Date.now();save()}}); loadBank();
 })();
 </script>
